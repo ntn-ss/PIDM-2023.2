@@ -1,11 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+// components
+import Questao1 from './components/Questao1';
+import Questao3 from './components/Questao3';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+        <Questao1 nome = "Nathan" cidade = "Horizonte" curso = "Design Digital" semestre={6} />
+        <View style={{marginTop: 20}}>
+          <Questao3 disciplinas={["Desenvolvimento de Software para Web", "Fundamentos de Bancos de Dados", "Linguagens de Marcação e Scripts", "Programação para Design"]} cor='darkorange' />
+        </View>
     </View>
   );
 }
