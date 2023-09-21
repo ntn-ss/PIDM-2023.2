@@ -14,7 +14,12 @@ const MyStyle = StyleSheet.create({
     },
     header: {
         fontSize: 32,
+        marginBottom: 20,
         fontWeight: 'bold'
+    },
+    screenText: {
+        fontSize: 16,
+        marginBottom: 15
     },
     button: {
         flex: 1,
@@ -30,6 +35,13 @@ const MyStyle = StyleSheet.create({
     buttonText: {
         fontSize: 20,
         color: '#FFF',
+    },
+    input:{
+        borderWidth: 2,
+        borderColor: 'black',
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 10
     }
 })
 
