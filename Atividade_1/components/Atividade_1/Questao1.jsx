@@ -1,9 +1,11 @@
 import React, { useState } from 'react'; // Make sure to import React
 import { StyleSheet, Image, Text, View, Button } from 'react-native';
-import preto from '../assets/preto.jpg';
-import normal from '../assets/normal.jpg';
+import preto from '../../assets/preto.jpg';
+import normal from '../../assets/normal.jpg';
 
-const Questao1 = ({ nome, cidade, curso, semestre }) => {
+const Questao1 = ({ props }) => {
+  const {nome, cidade, curso, semestre} = props
+
   const [imgVersion, setImgVersion] = useState(1);
   const [imgSRC, setImgSRC] = useState(normal);
 
@@ -26,11 +28,10 @@ const Questao1 = ({ nome, cidade, curso, semestre }) => {
       </Text>
       <Text>Eu venho da cidade de {cidade}.</Text>
       <Text>
-        Estou cursando{' '}
-        <Text style={{ fontWeight: 'bold', color: 'darkred' }}>{curso}</Text> e estou no semestre de número {semestre}.
+        Estou cursando <Text style={{ fontWeight: 'bold', color: 'darkred' }}>{curso}</Text>, {semestre}º semestre.
       </Text>
       <View style={{ marginTop: 20 }}>
-        <Button title="Clica em mim" onPress={trocaURL} />
+        <Button title="Clique aqui" onPress={trocaURL} />
       </View>
     </View>
   );

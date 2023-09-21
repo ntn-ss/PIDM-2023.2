@@ -7,7 +7,7 @@ const Questao3 = ({disciplinas, cor}) => {
             Minhas disciplinas favoritas até o momento foram estas:
 
             <ol>
-                {disciplinas.map((disciplina)=> <li style={{color: cor, fontWeight: 'bold'}}>{disciplina}.</li>)}
+                {disciplinas.map((disciplina, index)=> <li key={index} style={{color: cor, fontWeight: 'bold'}}>{disciplina}.</li>)}
             </ol>
         </Text>
     </View>
