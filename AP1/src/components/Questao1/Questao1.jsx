@@ -21,7 +21,7 @@ const Questao1 = ({ navigation }) => {
                                 iconColor={MD3Colors.tertiary100}
                                 size={30}
                                 mode="contained"
-                                onPress={()=>navigation.navigate('Tela02', item, section)}
+                                onPress={()=>navigation.navigate('Tela02', item)}
                             />
                             <View style={styles.lugarEHora}>
                                 <Text style={styles.title}>{item.nome}</Text>

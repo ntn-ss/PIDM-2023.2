@@ -5,7 +5,7 @@ import styles from './styles'
 import { View, Text } from 'react-native'
 
 const Questao2 = ({route, navigation}) => {
-    const { dia, icon, horas, minutos, preco, section } = route.params
+    const { nome, dia, icon, horas, minutos, preco } = route.params
     return (
         <PaperProvider>
             <View style={styles.container}>
@@ -16,6 +16,9 @@ const Questao2 = ({route, navigation}) => {
                 mode="contained"
                 onPress={()=>navigation.goBack()}
             />
+                <Text style={styles.horario}>
+                    {nome}
+                </Text>
                 <Text style={styles.horario}>
                     {dia}
                 </Text>
