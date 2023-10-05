@@ -1,6 +1,8 @@
+import React from "react";
 import { Text, StyleSheet, Pressable } from "react-native";
 
-const PokeButton = ({ onPress, title }) => {
+const PokeButton = (props) => {
+    const {onPress, title = 'Save'} = props
     return(
         <Pressable style={styles.button} onPress={onPress}>
             <Text style={styles.text}>{title}</Text>

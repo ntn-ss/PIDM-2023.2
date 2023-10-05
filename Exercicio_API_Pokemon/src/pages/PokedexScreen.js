@@ -28,12 +28,14 @@ const PokedexScreen = ({ navigation }) => {
             console.log(error);
         }
     }
+
     const renderAllPokemon = () => {
         return (
             <ScrollView style={{ width: '95%' }}>
                 <View 
                     style={{
                         flex: 1,
+                        flexDirection: 'row',
                         justifyContent: 'space-evenly',
                         flexWrap: 'wrap'
                     }}
@@ -66,7 +68,7 @@ const PokedexScreen = ({ navigation }) => {
                                             />
 
                                             <PokeButton
-                                                title={'Detalhes'}
+                                                title='Detalhes'
                                                 onPress = {
                                                     ()=>{
                                                         navigation.navigate('PokémonModal', {url: pokemonObj.url})
@@ -83,7 +85,7 @@ const PokedexScreen = ({ navigation }) => {
         )
     }
     return (
-        <View>
+        <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
             <Text style={{
                     fontSize: 25,
                     fontWeight: 'bold',
@@ -92,7 +94,7 @@ const PokedexScreen = ({ navigation }) => {
                     color: 'orange'
                 }}
             >
-                PokedexScreen
+                Pokédex Screen
             </Text>
             {renderAllPokemon()}
         </View>
