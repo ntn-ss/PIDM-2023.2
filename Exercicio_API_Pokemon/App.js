@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import AppPokemon from './src/AppPokemon'
 
 export default function App() {
