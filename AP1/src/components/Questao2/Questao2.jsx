@@ -16,7 +16,7 @@ const Questao2 = ({route, navigation}) => {
                 mode="contained"
                 onPress={()=>navigation.goBack()}
             />
-                <Text style={styles.horario}>
+                <Text style={styles.header}>
                     {nome}
                 </Text>
                 <Text style={styles.horario}>
