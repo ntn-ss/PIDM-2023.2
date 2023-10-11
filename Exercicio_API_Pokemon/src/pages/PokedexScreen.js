@@ -1,5 +1,5 @@
 // components
-import { Image, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, Image, ScrollView, Text, View } from "react-native";
 import PokeButton from '../components/PokeButton'
 
 // hooks
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Api from '../services/Api'
 
 const PokedexScreen = ({ navigation }) => {
+    const [loading, setLoading] = useState(false);
     const [allPokemon, setAllPokemon] = useState([])
 
     useEffect(() => {
@@ -17,13 +18,15 @@ const PokedexScreen = ({ navigation }) => {
     
     const fetchAllPokemon = async () => {
         try {
-            const response = await Api.get('/pokemon?limit=51')
+            setLoading(true)
+            const response = await Api.get('/pokemon?limit=20000')
             const vetorFormatado = response.data.results.map(
                 ({ name, url }) => {
                     return { key: url.split('/')[6], id: url.split('/')[6], name, url}
                 }
             )
             setAllPokemon(vetorFormatado)
+            setLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -64,7 +67,7 @@ const PokedexScreen = ({ navigation }) => {
                                             </Text>
                                             <Image
                                                 source={{uri:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonObj.id}.png`}}
-                                                style={{width: 60, height: 60}}
+                                                style={{width: 90, height: 90}}
                                             />
 
                                             <PokeButton
@@ -84,6 +87,7 @@ const PokedexScreen = ({ navigation }) => {
                 </ScrollView>
         )
     }
+
     return (
         <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
             <Text style={{
@@ -96,7 +100,11 @@ const PokedexScreen = ({ navigation }) => {
             >
                 Pokédex Screen
             </Text>
-            {renderAllPokemon()}
+            {loading ?
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <ActivityIndicator size={"large"} color={'orange'} />
+                </View> : renderAllPokemon()
+            }
         </View>
     )
 }
